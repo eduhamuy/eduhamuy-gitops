@@ -6,3 +6,4 @@ resources:
   - service.yaml
   - gateway/gateway.yaml
   - gateway/httproute.yaml
+  - gateway/http-redirect.yaml

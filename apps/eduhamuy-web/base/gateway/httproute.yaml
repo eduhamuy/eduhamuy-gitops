@@ -5,6 +5,7 @@ metadata:
 spec:
   parentRefs:
     - name: eduhamuy-web-gateway
+      sectionName: https
   hostnames:
     - dev.eduhamuy.com
   rules:
