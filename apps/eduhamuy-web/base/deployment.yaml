@@ -17,6 +17,8 @@ spec:
         app: eduhamuy-web
 
     spec:
+      imagePullSecrets:
+        - name: ghcr-eduhamuy
       containers:
         - name: eduhamuy-web
           image: ghcr.io/eduhamuy/eduhamuy-web:dev
