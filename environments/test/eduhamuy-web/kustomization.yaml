@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: eduhamuy-test
+
+resources:
+  - ../../../apps/eduhamuy-web/base
+  - gateway.yaml
+  - httproute.yaml
+  - http-redirect.yaml
+
+images:
+  - name: ghcr.io/eduhamuy/eduhamuy-web
+    newName: ghcr.io/eduhamuy/eduhamuy-web
+    newTag: 248aa0bc9f8c5165b92cfb32d958c928b02a8cee
