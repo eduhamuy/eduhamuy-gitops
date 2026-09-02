@@ -11,3 +11,16 @@ spec:
       allowedRoutes:
         namespaces:
           from: Same
+
+    - name: https
+      hostname: dev.eduhamuy.com
+      port: 443
+      protocol: HTTPS
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            name: eduhamuy-dev-tls
+      allowedRoutes:
+        namespaces:
+          from: Same
