@@ -8,6 +8,7 @@ resources:
   - gateway.yaml
   - httproute.yaml
   - http-redirect.yaml
+  - deployment-env.yaml
 
 images:
   - name: ghcr.io/eduhamuy/eduhamuy-web

@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eduhamuy-web
+spec:
+  template:
+    spec:
+      containers:
+        - name: eduhamuy-web
+          env:
+            - name: EDUHAMUY_ENV
+              value: "TEST"
