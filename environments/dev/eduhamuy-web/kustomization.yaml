@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: eduhamuy-dev
+
+resources:
+  - ../../../apps/eduhamuy-web/base
+
+images:
+  - name: ghcr.io/eduhamuy/eduhamuy-web
+    newName: ghcr.io/eduhamuy/eduhamuy-web
+    newTag: a73d97f46527ef6c5c6f78bb987bd04da97d5a1c
