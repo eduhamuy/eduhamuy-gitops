@@ -6,7 +6,7 @@ spec:
   parentRefs:
     - name: eduhamuy-shared-gateway
       namespace: eduhamuy-gateway
-      sectionName: https
+      sectionName: https-root
   hostnames:
     - eduhamuy.com
   rules:
