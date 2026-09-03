@@ -14,4 +14,4 @@ patches:
 images:
   - name: ghcr.io/eduhamuy/eduhamuy-web
     newName: ghcr.io/eduhamuy/eduhamuy-web
-    newTag: 6302c5c23e4b2bff135b93b2272b52dfce86a368
+    newTag: 7fca09b7a2adc26edd08e4f3d2d8d0c25ff1118a
