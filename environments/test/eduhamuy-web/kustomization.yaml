@@ -5,7 +5,6 @@ namespace: eduhamuy-test
 
 resources:
   - ../../../apps/eduhamuy-web/base
-  - gateway.yaml
   - httproute.yaml
   - http-redirect.yaml
 

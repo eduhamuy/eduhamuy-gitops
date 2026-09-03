@@ -4,7 +4,8 @@ metadata:
   name: eduhamuy-web
 spec:
   parentRefs:
-    - name: eduhamuy-web-gateway
+    - name: eduhamuy-shared-gateway
+      namespace: eduhamuy-gateway
       sectionName: https
   hostnames:
     - test.eduhamuy.com
