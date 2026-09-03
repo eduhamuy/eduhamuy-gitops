@@ -3,3 +3,5 @@ kind: Kustomization
 
 resources:
   - gateway.yaml
+  - argocd-route.yaml
+  - argocd-http-redirect.yaml
