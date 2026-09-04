@@ -10,3 +10,8 @@ spec:
           env:
             - name: EDUHAMUY_ENV
               value: "PROD"
+            - name: LD_SDK_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-launchdarkly
+                  key: LD_SDK_KEY
