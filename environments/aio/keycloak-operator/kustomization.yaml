@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: eduhamuy-identity-aio
+resources:
+  - ../../../infrastructure/keycloak-operator/26.7.3
+  - namespace.yaml
+transformers:
+  - |-
+    apiVersion: builtin
+    kind: NamespaceTransformer
+    metadata:
+      name: identity-namespace
+      namespace: eduhamuy-identity-aio
+    setRoleBindingSubjects: allServiceAccounts
+    fieldSpecs:
+      - path: metadata/namespace
+        create: true
+patches:
+  - target:
+      kind: CustomResourceDefinition
+    patch: |-
+      - op: add
+        path: /metadata/annotations
+        value:
+          argocd.argoproj.io/sync-options: ServerSideApply=true,Prune=confirm,Delete=confirm

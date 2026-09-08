@@ -1,0 +1,46 @@
+apiVersion: k8s.keycloak.org/v2beta1
+kind: Keycloak
+metadata:
+  name: keycloak
+spec:
+  instances: 1
+  image: quay.io/keycloak/keycloak:26.7.3
+  db:
+    vendor: postgres
+    host: postgresql.eduhamuy-data-aio.svc.cluster.local
+    port: 5432
+    database: keycloak
+    poolInitialSize: 1
+    poolMinSize: 1
+    poolMaxSize: 10
+    usernameSecret:
+      name: keycloak-db
+      key: username
+    passwordSecret:
+      name: keycloak-db
+      key: password
+  http:
+    httpEnabled: true
+  hostname:
+    hostname: https://keycloak-aio.eduhamuy.com
+    strict: true
+  proxy:
+    headers: xforwarded
+  ingress:
+    enabled: false
+  networkPolicy:
+    enabled: true
+    http:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: kube-system
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: traefik
+  resources:
+    requests:
+      cpu: 250m
+      memory: 768Mi
+    limits:
+      cpu: "1"
+      memory: 1536Mi

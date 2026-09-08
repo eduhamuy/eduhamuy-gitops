@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak-aio
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:eduhamuy/eduhamuy-gitops.git
+    targetRevision: main
+    path: environments/aio/keycloak
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eduhamuy-identity-aio
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
