@@ -5,6 +5,8 @@ metadata:
 spec:
   instances: 1
   image: quay.io/keycloak/keycloak:26.7.3
+  # La imagen oficial requiere augmentación al arrancar; no está precompilada.
+  startOptimized: false
   db:
     vendor: postgres
     host: postgresql.eduhamuy-data-aio.svc.cluster.local
