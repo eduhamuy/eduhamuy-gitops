@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eduhamuy-web
+spec:
+  template:
+    spec:
+      containers:
+        - name: eduhamuy-web
+          env:
+            - name: EDUHAMUY_ENV
+              value: "AIO"
+            - name: LD_SDK_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-launchdarkly
+                  key: LD_SDK_KEY
