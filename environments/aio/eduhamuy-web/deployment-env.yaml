@@ -15,3 +15,23 @@ spec:
                 secretKeyRef:
                   name: eduhamuy-launchdarkly
                   key: LD_SDK_KEY
+            - name: AUTH_ENABLED
+              value: "true"
+            - name: AUTH_URL
+              value: https://aio.eduhamuy.com
+            - name: AUTH_TRUST_HOST
+              value: "true"
+            - name: AUTH_KEYCLOAK_ID
+              value: eduhamuy-web
+            - name: AUTH_KEYCLOAK_ISSUER
+              value: https://keycloak-aio.eduhamuy.com/realms/eduhamuy
+            - name: AUTH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-auth
+                  key: AUTH_SECRET
+            - name: AUTH_KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-auth
+                  key: AUTH_KEYCLOAK_SECRET
