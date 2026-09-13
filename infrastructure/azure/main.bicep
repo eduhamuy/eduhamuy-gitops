@@ -21,8 +21,8 @@ param postgresProdName string = 'eduhamuy-pg-prod'
 @description('Kubernetes version for the new AKS cluster. Verify availability with az aks get-versions before deployment.')
 param kubernetesVersion string = '1.36.3'
 
-@description('Initial AKS node count. Increase for production workloads.')
-param aksNodeCount int = 2
+@description('Initial AKS node count. Three nodes currently provide capacity for Argo CD, Gateway/Istio and the three web environments.')
+param aksNodeCount int = 3
 
 @description('Initial AKS node VM size.')
 param aksNodeVmSize string = 'Standard_D2s_v7'
