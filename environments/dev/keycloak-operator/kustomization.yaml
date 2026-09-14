@@ -6,6 +6,7 @@ namespace: eduhamuy-identity-dev
 resources:
   - ../../../infrastructure/keycloak-operator/26.7.3
   - namespace.yaml
+  - cluster-role-bindings.yaml
 
 patches:
   - path: watch-all-patch.yaml
