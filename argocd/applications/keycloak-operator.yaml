@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: keycloak-operator
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: git@github.com:eduhamuy/eduhamuy-gitops.git
+    targetRevision: main
+    path: infrastructure/keycloak-operator/cluster-wide
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak-operator
