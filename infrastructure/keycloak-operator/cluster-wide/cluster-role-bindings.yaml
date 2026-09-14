@@ -1,0 +1,51 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: keycloakrealmimportcontroller-cluster-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: keycloakrealmimportcontroller-cluster-role
+subjects:
+  - kind: ServiceAccount
+    name: keycloak-operator
+    namespace: keycloak-operator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: keycloaksamlclientcontroller-cluster-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: keycloaksamlclientcontroller-cluster-role
+subjects:
+  - kind: ServiceAccount
+    name: keycloak-operator
+    namespace: keycloak-operator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: keycloakcontroller-cluster-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: keycloakcontroller-cluster-role
+subjects:
+  - kind: ServiceAccount
+    name: keycloak-operator
+    namespace: keycloak-operator
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: keycloakoidcclientcontroller-cluster-role-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: keycloakoidcclientcontroller-cluster-role
+subjects:
+  - kind: ServiceAccount
+    name: keycloak-operator
+    namespace: keycloak-operator
