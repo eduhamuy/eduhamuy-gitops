@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: eduhamuy-identity-dev
 
 resources:
+  - namespace.yaml
   - keycloak.yaml
   - httproute.yaml
