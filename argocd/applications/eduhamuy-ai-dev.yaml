@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eduhamuy-ai-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:eduhamuy/eduhamuy-gitops.git
+    targetRevision: main
+    path: environments/dev/eduhamuy-ai
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: eduhamuy-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=false
