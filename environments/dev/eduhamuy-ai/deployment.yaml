@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eduhamuy-ai
+  labels:
+    app: eduhamuy-ai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eduhamuy-ai
+  template:
+    metadata:
+      labels:
+        app: eduhamuy-ai
+    spec:
+      imagePullSecrets:
+        - name: ghcr-eduhamuy
+      containers:
+        - name: eduhamuy-ai
+          image: ghcr.io/eduhamuy/eduhamuy-ai:dev
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+          env:
+            - name: AZURE_STORAGE_ACCOUNT
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-ai-azure
+                  key: AZURE_STORAGE_ACCOUNT
+            - name: AZURE_STORAGE_SAS
+              valueFrom:
+                secretKeyRef:
+                  name: eduhamuy-ai-azure
+                  key: AZURE_STORAGE_SAS
+            - name: AZURE_ARTIFACT_CONTAINER
+              value: ai-artifacts
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

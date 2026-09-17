@@ -33,3 +33,5 @@ spec:
                 secretKeyRef:
                   name: eduhamuy-auth
                   key: AUTH_SECRET
+            - name: AI_API_URL
+              value: "http://eduhamuy-ai:8000"

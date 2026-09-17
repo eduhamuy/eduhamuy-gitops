@@ -16,6 +16,7 @@ This repository contains the declarative configuration used to deploy and manage
 ## Application
 
 - `eduhamuy-web`
+- `eduhamuy-ai`
 
 ## GitOps
 
