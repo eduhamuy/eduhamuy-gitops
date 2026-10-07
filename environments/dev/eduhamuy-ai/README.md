@@ -1,7 +1,9 @@
 # eduhamuy-ai en DEV
 
-Este overlay despliega el backend FastAPI de búsqueda TF-IDF en el namespace
-`eduhamuy-dev`. El servicio es `ClusterIP` y no tiene una ruta pública propia.
+Este overlay despliega el backend FastAPI de búsqueda híbrida en el namespace
+`eduhamuy-dev`. El servicio carga la versión experimental publicada en
+`ai-artifacts-dev/experiments/2026-10-07-v1`. El servicio es `ClusterIP` y no
+tiene una ruta pública propia.
 
 ## Secreto requerido
 
@@ -17,9 +19,10 @@ kubectl -n eduhamuy-dev create secret generic eduhamuy-ai-azure \
 unset AZURE_STORAGE_SAS
 ```
 
-El SAS debe permitir leer el contenedor privado `ai-artifacts`, donde deben
-existir `tfidf_vectorizer.joblib`, `X_tfidf.npz` y
-`processed_documents.csv`.
+El SAS debe permitir leer el contenedor privado `ai-artifacts-dev`, incluido el
+prefijo `experiments/2026-10-07-v1`. El backend verifica los hashes publicados
+en `artifact_manifest.json` antes de cargar TF-IDF, embeddings y la
+configuración híbrida.
 
 ## Comprobación interna
 
