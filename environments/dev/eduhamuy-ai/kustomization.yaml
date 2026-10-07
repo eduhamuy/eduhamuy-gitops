@@ -10,4 +10,4 @@ resources:
 images:
   - name: ghcr.io/eduhamuy/eduhamuy-ai
     newName: ghcr.io/eduhamuy/eduhamuy-ai
-    newTag: ebfab54fdfdcfbaaf65483bfa1b5c9412be5024b
+    newTag: bd1f749f757b38729d63284c4a733c833dbea01c
