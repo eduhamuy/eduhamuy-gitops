@@ -35,7 +35,9 @@ spec:
                   name: eduhamuy-ai-azure
                   key: AZURE_STORAGE_SAS
             - name: AZURE_ARTIFACT_CONTAINER
-              value: ai-artifacts
+              value: ai-artifacts-dev
+            - name: ARTIFACT_PREFIX
+              value: experiments/2026-10-07-v1
           readinessProbe:
             httpGet:
               path: /health
