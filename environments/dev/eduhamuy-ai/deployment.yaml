@@ -38,11 +38,6 @@ spec:
               value: ai-artifacts-dev
             - name: AZURE_SOURCE_CONTAINER
               value: ai-source-dev
-            - name: AZURE_SOURCE_SAS
-              valueFrom:
-                secretKeyRef:
-                  name: eduhamuy-ai-azure
-                  key: AZURE_SOURCE_SAS
             - name: ARTIFACT_PREFIX
               value: indexes/hybrid_tfidf_embeddings/dev-2026-10-07-v1-c189b2439785-1
           readinessProbe:
