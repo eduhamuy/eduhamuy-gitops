@@ -37,7 +37,7 @@ spec:
             - name: AZURE_ARTIFACT_CONTAINER
               value: ai-artifacts-dev
             - name: ARTIFACT_PREFIX
-              value: experiments/2026-10-07-v1
+              value: indexes/hybrid_tfidf_embeddings/dev-2026-10-07-v1-c189b2439785-1
           readinessProbe:
             httpGet:
               path: /health
