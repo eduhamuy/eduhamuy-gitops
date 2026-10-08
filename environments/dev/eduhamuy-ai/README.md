@@ -11,24 +11,21 @@ Los valores no se guardan en Git. Crear o actualizar el secreto en el clúster:
 
 ```bash
 read -r -s AZURE_STORAGE_SAS
-read -r -s AZURE_SOURCE_SAS
 echo
 kubectl -n eduhamuy-dev create secret generic eduhamuy-ai-azure \
   --from-literal=AZURE_STORAGE_ACCOUNT=steduhamuyshared \
   --from-literal=AZURE_STORAGE_SAS="$AZURE_STORAGE_SAS" \
-  --from-literal=AZURE_SOURCE_SAS="$AZURE_SOURCE_SAS" \
   --dry-run=client -o yaml | kubectl apply -f -
 unset AZURE_STORAGE_SAS
-unset AZURE_SOURCE_SAS
 ```
 
 `AZURE_STORAGE_SAS` debe permitir leer el contenedor privado
-`ai-artifacts-dev`, incluido el prefijo de índice aprobado. `AZURE_SOURCE_SAS`
-debe ser de solo lectura y estar limitado al contenedor `ai-source-dev`; se usa
-solamente para transmitir un PDF solicitado mediante su identificador del
-índice. El backend verifica los hashes publicados en
-`artifact_manifest.json` antes de cargar TF-IDF, embeddings y la configuración
-híbrida.
+`ai-artifacts-dev`, incluido el prefijo de índice aprobado. Para la vista
+previa debe incluir además lectura de `ai-source-dev`. Se puede configurar un
+`AZURE_SOURCE_SAS` separado, de solo lectura y limitado a ese contenedor, como
+mejora posterior; mientras no exista, el backend usa `AZURE_STORAGE_SAS`.
+El backend verifica los hashes publicados en `artifact_manifest.json` antes de
+cargar TF-IDF, embeddings y la configuración híbrida.
 
 ## Comprobación interna
 
