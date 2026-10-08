@@ -39,7 +39,7 @@ spec:
             - name: AZURE_SOURCE_CONTAINER
               value: ai-source-dev
             - name: ARTIFACT_PREFIX
-              value: indexes/hybrid_tfidf_embeddings/dev-2026-10-07-v1-c189b2439785-1
+              value: indexes/hybrid_tfidf_embeddings/dev-2026-10-08-catalog-e267c5b
           readinessProbe:
             httpGet:
               path: /health
