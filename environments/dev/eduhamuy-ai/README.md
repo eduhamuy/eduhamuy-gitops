@@ -1,7 +1,7 @@
 # eduhamuy-ai en DEV
 
 Este overlay despliega el backend FastAPI de búsqueda híbrida en el namespace
-`eduhamuy-dev`. El servicio carga la versión experimental publicada en
+`eduhamuy-dev`. El servicio carga una versión aprobada publicada en
 `ai-artifacts-dev/indexes/hybrid_tfidf_embeddings/<BUILD_VERSION>`. El
 servicio es `ClusterIP` y no tiene una ruta pública propia.
 
